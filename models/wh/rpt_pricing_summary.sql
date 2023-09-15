@@ -26,6 +26,7 @@ select
 from
     {{ ref('fct_orders_items') }} f
 where
-    f.ship_date <= {{ dbt_utils.dateadd('day', -90, var('max_ship_date')) }}
+    f.ship_date <= dateadd('day', -90, {{var('max_ship_date')}})
+    --f.ship_date <= dateadd('day', -90, '1998-12-01')
 group by
     1,2    

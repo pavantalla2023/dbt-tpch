@@ -1,14 +1,10 @@
+name: 'sales_dwh'
+version: '1.6.0'
 
-# Name your package! Package names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'dbt_tpch'
-version: '1.0'
-
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"] 
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["seed"]
 macro-paths: ["macros"]
 
 target-path: "target"  # directory which will store compiled SQL files
@@ -16,9 +12,12 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
-profile: tpch
+profile: default
 
-require-dbt-version: ">=0.13.1"
+#require-dbt-version: ">=0.13.1"
+
+vars:
+  max_ship_date: '1998-12-01'
 
 quoting:
     database: false
@@ -26,14 +25,12 @@ quoting:
     schema: false
 
 models:
-  dbt_tpch:
-
-      vars:
-        max_ship_date: "'1998-12-01'"
-
-      base:
-        schema: base
+  sales_dwh:
+      stg_base:
+        schema: STG_BASE
+      cln_base:
+        schema: CLN_BASE
       ods:
-        schema: ods
+        schema: ODS
       wh:
-        schema: wh
+        schema: DWH
