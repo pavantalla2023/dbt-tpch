@@ -34,3 +34,7 @@ models:
         schema: ODS
       wh:
         schema: DWH
+
+
+#on-run-start: "select 'project run started';"
+#on-run-end: "select 'i am at end';"
