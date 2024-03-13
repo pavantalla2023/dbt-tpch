@@ -27,9 +27,8 @@ quoting:
 models:
   sales_dwh:
       stg_base:
+        materialized: table
         schema: STG_BASE
-      cln_base:
-        schema: CLN_BASE
       ods:
         schema: ODS
       wh:
