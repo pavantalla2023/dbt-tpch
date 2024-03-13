@@ -15,6 +15,11 @@ sources:
       - name: customer
       - name: lineitem
       - name: nation
+        columns:
+        - name: n_name
+          description: "The country name"
+          tests:
+              - not_null
       - name: orders
       - name: part
       - name: partsupp
