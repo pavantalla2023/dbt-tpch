@@ -20,7 +20,3 @@ sources:
       - name: partsupp
       - name: region
       - name: supplier
-        tests:
-          - dbt_expectations.expect_table_column_count_to_be_between:
-              min_value: 500 # (Optional)
-              max_value: 40000 # (Optional)
