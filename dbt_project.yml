@@ -28,8 +28,9 @@ quoting:
 models:
   sales_dwh:
       database: sales_dwh_gen_db_dev
+      +transient: false
       stg_base:
-        materialized: table
+        #materialized: table
         schema: STG_BASE
       ods:
         schema: ODS
