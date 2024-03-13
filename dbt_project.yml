@@ -27,6 +27,7 @@ quoting:
 
 models:
   sales_dwh:
+      database: sales_dwh_gen_db_dev
       stg_base:
         materialized: table
         schema: STG_BASE
